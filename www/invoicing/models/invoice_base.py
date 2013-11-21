@@ -431,8 +431,7 @@ class InvoiceBase(Document, AsyncTTLUploadsMixin, NotificationAwareDocumentMixin
                     # Force are system updates
                     invoicing_signals.post_client_changed_invoice_state.send(self.__class__, document=self, previous_state=previous_state)
                 return True
-            except Exception as e:
-                print e
+            except:
                 return False
         else:
             try:
